@@ -69,16 +69,18 @@ class Demographic(tk.Frame):
                 text.insert(tk.END,title+'\n')
             loop_index += 1
         text.configure(state="disabled")
-
+        # row_no,loop_index = 0,0
         # for index, row in return_top(10).iterrows():
         #     image = get_image(row['id'])
-        #     label2 = ttk.Label(self,image=image)
-        #     label2.image = image
-        #     label2.pack()
-        #     label3 = ttk.Label(self,text= row['title'])
-        #     label3.pack()
+        #     title = row['title']
+        #     label2 = tk.Label(self,image = image)
+        #     label2.image  = image
+        #     label2.place(x=400*(loop_index % 3) ,y = 500*row_no)
+        #     loop_index+= 1
+        #     if(loop_index%3 ==2):
+        #         row_no+=1
         
-        
+    
         
         button1 = ttk.Button(self,text="Content Based",command = lambda : controller.show_frame(ContentBased))
         button1.pack()
