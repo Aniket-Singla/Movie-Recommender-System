@@ -13,7 +13,7 @@ df2=pd.read_csv(r'C:\Users\HP1\Desktop\work\Recommendation System\input\tmdb_500
 df1.columns = ['id','tittle','cast','crew']
 df2= df2.merge(df1,on='id')
 
-indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
+
 
 
 features = ['cast', 'crew', 'keywords', 'genres']
@@ -65,7 +65,7 @@ count = CountVectorizer(stop_words='english')
 count_matrix = count.fit_transform(df2['soup'])
 cosine_sim2 = cosine_similarity(count_matrix, count_matrix)
 df2 = df2.reset_index()
-# indices = pd.Series(df2.index, index=df2['title'])
+indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
 print('listening for content based')
 def get_recommendations(title, cosine_sim=cosine_sim2):
     
