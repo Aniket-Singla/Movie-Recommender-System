@@ -1,0 +1,6 @@
+#these file patterns are not traced by git
+.env
+.csv
+node_modules
+package-lock.json
+Examples

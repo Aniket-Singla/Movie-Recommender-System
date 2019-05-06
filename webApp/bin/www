@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const app = require('../index');
+const path = require('path');
+require('dotenv').config();
+
+var port = process.env.PORT || '8080';
+console.log(port)
+app.set('port', port);
+app.listen(port, () => {console.log(`Example app listening on port ${port}!`)})

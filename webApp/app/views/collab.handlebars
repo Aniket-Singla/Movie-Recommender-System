@@ -1,0 +1,48 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Collaborative Filtering</h1>
+        <p>This system matches persons with similar interests and provides recommendations based on this matching. Collaborative filters do not require item metadata like its content-based counterparts.</p>
+        <p><a class="btn btn-primary btn-lg" href="/aboutUs" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+
+
+<br>
+<br>
+<br>
+<p>We have data of 671 user Ratings. Each of the user has rated several movies and several are unrated.<br> This Programs rates the unrated movies</p>
+<p>Results : {{userRows.result}} for Movie {{movieId}} by user {{user}}</p>
+<table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Movie Id</th>
+      <th scope="col">Rating by User {{user}}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each userRows.user}}
+    
+    <tr>
+      <th scope="row">{{this.movieId}}</th>
+      <td>{{this.rating}}</td>
+    </tr>
+    {{/each}}
+
+</tbody>
+</table>
+<form class="form-horizontal" action="/collab" method="GET">
+        
+        <input type="hidden" name="type" value="collab">
+		<div class="form-group col-md-12">
+	      <label for="userId"><h5>User Id</h5></label>
+	      <input type="text" class="form-control" name="userId"  placeholder="Enter User Id(b/w 1 and 671)">
+    	</div>  
+        <div class="form-group col-md-12">
+	      <label for="movieId"><h5>Movie Id</h5></label>
+	      <input type="text" class="form-control" name="movieId"  placeholder="Ex. 5902">
+    	</div>  
+		
+    	<button type = "submit" class="btn btn-primary" id = "Submit">Predict</button>
+</form>

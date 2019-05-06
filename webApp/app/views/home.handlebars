@@ -1,0 +1,39 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Demographic Filtering Results</h1>
+        <p>This is a WebSite for a helping folks to find which is the next movie to watch out</p>
+        <p><a class="btn btn-primary btn-lg" href="/aboutUs" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+<form action="/" method="GET">
+        
+		<div class="form-group col-md-12">
+	      <label for="number"><h5>Number of Top Movies To Display</h5></label>
+	      <input type="text" class="form-control" name="number"  placeholder="Ex. 10">
+    	</div>      
+		
+    	<button type = "submit" class="btn btn-primary" id = "Submit">Display</button>
+</form>
+<br>
+<div class="row">
+  {{#each movies}}
+  <div class="col-sm">
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{this.image_url}}"" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text">This movie got a score of {{this.score}}</p>
+  </div>
+  
+  <div class="card-body">
+    <a href="https://www.themoviedb.org/movie/{{this.id}}" target="_blank" class="btn btn-primary">Go To TMDB Page</a>
+  </div>
+</div>
+</div>
+{{/each}}
+</div>
+
+
+      <hr>

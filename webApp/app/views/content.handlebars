@@ -1,0 +1,36 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Content Based Filtering</h1>
+        <p>They suggest similar items based on a particular item. This system uses item metadata, such as genre, director, description, actors, etc. for movies, to make these recommendations. The general idea behind these recommender systems is that if a person liked a particular item, he or she will also like an item that is similar to it.</p>
+        <p><a class="btn btn-primary btn-lg" href="/aboutUs" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+
+<form action="/content" method="GET">
+        <input type="hidden" name="type" value="content">
+		<div class="form-group col-md-12">
+	      <label for="title"><h5>Movie Title</h5></label>
+	      <input type="text" class="form-control" name="title"  placeholder="Search Similar Movies">
+    	</div>      
+		
+    	<button type = "submit" class="btn btn-primary" id = "Submit">Search</button>
+</form>
+
+<div class="row">
+  {{#each movies}}
+  <div class="col-sm">
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{this.image_url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+  </div>
+  
+  <div class="card-body">
+    <a href="https://www.themoviedb.org/movie/{{this.id}}" target="_blank" class="btn btn-primary">Go To TMDB page</a>
+  </div>
+</div>
+</div>
+{{/each}}
+</div>
